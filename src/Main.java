@@ -7,24 +7,23 @@ public class Main {
         int yearPhone = 2022;
         int OS = 1;
         checkOS (OS, yearPhone);
-        checkDelivert (deliveryTime);
         int deliveryDistance = 95;
         int timeDelivery = calcDeliveryTime (deliveryDistance);
         if (timeDelivery == 1){
-            System.out.println("Потребуется дней доставки" + timeDelivery);
+            System.out.println("Потребуется дней доставки -" + timeDelivery);
         } else if (timeDelivery <= 2){
-            System.out.println("Потребуется дней доставки" + timeDelivery);
+            System.out.println("Потребуется дней доставки -" + timeDelivery);
         } else {
-            System.out.println("Потребуется дней доставки" + timeDelivery);
+            System.out.println("Потребуется дней доставки -" + timeDelivery);
         }
         }
 
      public static void checkYear (int checkYear){
         int  calc = checkYear % 400 % 100 % 4;
-        if (calc == 0){
-            System.out.println(checkYear + "год является високосным");
+        if (calc % 4 == 0 && calc % 100 != 0 || calc % 400 == 0){
+            System.out.println(checkYear + " год является високосным");
         } else {
-            System.out.println(checkYear + "год не является високосным");
+            System.out.println(checkYear + " год не является високосным");
         }
      }
 
@@ -41,7 +40,7 @@ public class Main {
         }
      }
 
-     public static void calcDeliveryTime (int distance){
+     public static int calcDeliveryTime (int distance){
         int timeDelivery = 0;
         if (distance <= 20){
             timeDelivery = 1;
